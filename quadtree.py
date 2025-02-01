@@ -54,14 +54,7 @@ class QuadTree:
 
     def show(self, screen):
         '''Draw the QuadTree on the screen.'''
-
-        x,y = pygame.mouse.get_pos()
-
-        if self.boundary.intesects_with_circle(x,y,ParticleConfig.IMPACT_RADIUS):
-            pygame.draw.rect(screen, self.color, (self.boundary.x1, self.boundary.y1, self.boundary.x2 - self.boundary.x1, self.boundary.y2 - self.boundary.y1), 1)
-            for item in self.points.values():
-                x,y,val,color = item
-                pygame.draw.circle(screen, color, (x,y), ParticleConfig.RADIUS)
+        pygame.draw.rect(screen, self.color, (self.boundary.x1, self.boundary.y1, self.boundary.x2 - self.boundary.x1, self.boundary.y2 - self.boundary.y1), 1)
                 
         if self.divided:
             self.top_left.show(screen)
